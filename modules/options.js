@@ -7,7 +7,7 @@ program
   .option('-i, --input <type>')
   .option('-o, --output <type>')
   .option('-a, --action <type>')
-  .parse(program.args);
+  .parse();
 
 const options = program.opts();
 const {

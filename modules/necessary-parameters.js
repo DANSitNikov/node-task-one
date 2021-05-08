@@ -14,8 +14,11 @@ function checkNecessaryParameters(parameter, value) {
         process.stderr.write('Shift parameter is necessary');
         process.exit(3);
       } else if (Number.isNaN(Number(value))) {
-        process.stderr.write('Shift parameter is not a number');
+        process.stderr.write('Shift parameter must be a number');
         process.exit(4);
+      } else if (Number(value) % 1 !== 0) {
+        process.stderr.write('Shift parameter must be an integer');
+        process.exit(5);
       }
       break;
     default:

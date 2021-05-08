@@ -1,7 +1,5 @@
 const { pipeline } = require('stream');
 const fs = require('fs');
-// const { Transform } = require('stream');
-// const { caesarCipher } = require('./caesar-cipher');
 const { transform } = require('./transform');
 
 function changeFileContent(inputPath, outputPath) {
@@ -25,17 +23,11 @@ function changeFileContent(inputPath, outputPath) {
   pipeline(
     input,
     transform,
-    // new Transform({
-    //   objectMode: true,
-    //   transform(chunk) {
-    //     this.push(caesarCipher(chunk.toString(), shift, action));
-    //   },
-    // }),
     output,
     (err) => {
       if (err) {
         process.stderr.write('Pipeline failed.', err);
-        process.exit(6);
+        process.exit(7);
       }
     },
   );

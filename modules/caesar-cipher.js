@@ -5,18 +5,14 @@ function caesarCipher(string, shift, action) {
 
   return lettersArray.map((letter) => {
     const letterInLowerCase = letter.toLowerCase();
-    const caseCheck = /[A-Z]/g;
+    const caseCheck = /[A-Z]/;
 
     if (alphabet.includes(letterInLowerCase)) {
       let index = (alphabet.indexOf(letterInLowerCase) + Number(numberSign)) % alphabet.length;
 
       if (index < 0) index += alphabet.length;
 
-      if (letter.match(caseCheck)) {
-        return alphabet[index].toUpperCase();
-      }
-
-      return alphabet[index];
+      return letter.match(caseCheck) ? alphabet[index].toUpperCase() : alphabet[index];
     }
 
     return letter;

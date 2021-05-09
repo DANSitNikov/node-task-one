@@ -1,5 +1,5 @@
 const { changeFileContent } = require('./change-file-content');
-const { checkFilePath } = require('./check-file-path');
+const { checkFilePath, checkIsEqualPaths } = require('./check-file-path');
 const {
   getShift, getAction, getInput, getOutput,
 } = require('./options');
@@ -9,6 +9,8 @@ function checkFiles() {
   const outputPath = getOutput();
   const shift = getShift();
   const action = getAction();
+
+  checkIsEqualPaths();
 
   if (inputPath && outputPath) {
     checkFilePath(inputPath);

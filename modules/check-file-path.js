@@ -1,4 +1,6 @@
 const fs = require('fs');
+const { getOutput } = require('./options');
+const { getInput } = require('./options');
 
 function checkFilePath(path) {
   if (!fs.existsSync(path)) {
@@ -7,4 +9,14 @@ function checkFilePath(path) {
   }
 }
 
-module.exports.checkFilePath = checkFilePath;
+function checkIsEqualPaths() {
+  if (getInput() === getOutput() && getInput()) {
+    process.stderr.write('It should be different file!');
+    process.exit(7);
+  }
+}
+
+module.exports = {
+  checkFilePath,
+  checkIsEqualPaths,
+};

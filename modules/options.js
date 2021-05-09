@@ -3,10 +3,10 @@ const { program } = require('commander');
 program.version('1.0.0');
 
 program
-  .option('-s, --shift <type>')
-  .option('-i, --input <type>')
-  .option('-o, --output <type>')
-  .option('-a, --action <type>')
+  .option('-s, --shift [type]')
+  .option('-i, --input [type]')
+  .option('-o, --output [type]')
+  .option('-a, --action [type]')
   .parse();
 
 const options = program.opts();
